@@ -6,6 +6,6 @@ import "github.com/gofiber/fiber"
 func Index(c *fiber.Ctx) {
 	c.Render("index", fiber.Map{
 		"Title":   "Fiber",
-		"Message": "Hello, World!",
+		"Message": "Funny Meme",
 	})
 }

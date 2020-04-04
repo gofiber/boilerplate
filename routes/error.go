@@ -2,8 +2,8 @@ package routes
 
 import "github.com/gofiber/fiber"
 
-// Error rout
-func Error(c *fiber.Ctx, err error) 
+// Error ...
+func Error(c *fiber.Ctx, err error) { 
 	c.Status(500)
 	c.Render("500", fiber.Map{
 		"Title":   "500 Bad Request - Fiber",

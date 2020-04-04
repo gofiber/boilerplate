@@ -1,4 +1,4 @@
 package database
 
-// Connect with database
+// Connect ...
 func Connect() {}
