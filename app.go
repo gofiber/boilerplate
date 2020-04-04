@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./database"
 	"./routes"
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/helmet"
@@ -9,6 +10,9 @@ import (
 )
 
 func main() {
+	// Connect with database
+	database.Connect()
+
 	// App settings -> https://fiber.wiki/application#settings
 	app := fiber.New(&fiber.Settings{
 		TemplateFolder:    "./views",
