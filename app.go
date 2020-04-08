@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"./database"
 	"./routes"
 	"github.com/gofiber/fiber"
@@ -31,5 +33,6 @@ func main() {
 
 	app.Use(routes.NotFound)
 
-	app.Listen(3000)
+	err := app.Listen(3000)
+	fmt.Println(err)
 }
