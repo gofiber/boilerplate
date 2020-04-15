@@ -19,10 +19,10 @@ func main() {
 		TemplateExtension: ".html",
 	})
 
+	app.Use(logger.New())
 	app.Use(recover.New(recover.Config{
 		Handler: routes.Error,
 	}))
-	app.Use(logger.New())
 	app.Use(helmet.New())
 
 	app.Get("/", routes.Index)
