@@ -1,35 +1,29 @@
 package main
 
 import (
-	"./database"
-	"./routes"
+	"boilerplate/controllers"
+	"boilerplate/database"
+	"boilerplate/routes"
+
 	"github.com/gofiber/fiber"
-	"github.com/gofiber/helmet"
 	"github.com/gofiber/logger"
 	"github.com/gofiber/recover"
 )
 
 func main() {
+	// Connected with database
 	database.Connect()
-
-	app := fiber.New(&fiber.Settings{
-		TemplateFolder:    "./views",
-		TemplateExtension: ".html",
-	})
-
-	app.Use(recover.New(recover.Config{
-		Handler: routes.Error,
-	}))
+	// Create fiber app
+	app := fiber.New()
+	// Middleware
+	app.Use(recover.New())
 	app.Use(logger.New())
-	app.Use(helmet.New())
-
-	app.Get("/", routes.Index)
-	app.Get("/json", routes.JSON)
-	app.Get("/panic", routes.Panic)
-
+	// Register user routes
+	routes.User(app)
+	// Setup static files
 	app.Static("/", "./public")
-
-	app.Use(routes.NotFound)
-
+	// Handle not founds
+	app.Use(controllers.NotFound)
+	// Listen on port 3000
 	app.Listen(3000)
 }
