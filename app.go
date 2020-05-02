@@ -18,6 +18,10 @@ func main() {
 	// Middleware
 	app.Use(recover.New())
 	app.Use(logger.New())
+	// Test recover middleware
+	app.Get("/panic", func(c *fiber.Ctx) {
+		panic("Hi I'm an error!")
+	})
 	// Register user routes
 	routes.User(app)
 	// Setup static files
