@@ -29,5 +29,5 @@ func main() {
 	// Handle not founds
 	app.Use(controllers.NotFound)
 	// Listen on port 3000
-	app.Listen(3000)
+	app.Listen("0.0.0.0:3000")
 }
