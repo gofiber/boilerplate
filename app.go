@@ -3,12 +3,14 @@ package main
 import (
 	"boilerplate/database"
 	"boilerplate/handlers"
+	"strconv"
 
 	"flag"
 	"log"
 
-	"github.com/gofiber/fiber"
-	"github.com/gofiber/fiber/middleware"
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
 var (
@@ -21,12 +23,13 @@ func main() {
 	database.Connect()
 
 	// Create fiber app
-	app := fiber.New()
-	app.Settings.Prefork = *prod // go run app.go -prod
+	app := fiber.New(fiber.Config{
+		Prefork: *prod, // go run app.go -prod
+	})
 
 	// Middleware
-	app.Use(middleware.Recover())
-	app.Use(middleware.Logger())
+	app.Use(recover.New())
+	app.Use(logger.New())
 
 	// Create a /api/v1 endpoint
 	v1 := app.Group("/api/v1")
@@ -42,5 +45,5 @@ func main() {
 	app.Use(handlers.NotFound)
 
 	// Listen on port 3000
-	log.Fatal(app.Listen(*port)) // go run app.go -port=3000
+	log.Fatal(app.Listen(":" + strconv.Itoa(*port))) // go run app.go -port=3000
 }
