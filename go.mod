@@ -1,5 +1,5 @@
 module boilerplate
 
-go 1.14
+go 1.15
 
-require github.com/gofiber/fiber v1.14.2
+require github.com/gofiber/fiber v1.14.6
