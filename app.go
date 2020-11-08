@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	port = flag.String("port", ":3001", "Port to listen on")
+	port = flag.String("port", ":3000", "Port to listen on")
 	prod = flag.Bool("prod", false, "Enable prefork in Production")
 )
 
@@ -38,7 +38,7 @@ func main() {
 	v1.Post("/users", handlers.UserCreate)
 
 	// Setup static files
-	app.Static("/", "./static/public")
+	app.Static("/", "./public")
 
 	// Handle not founds
 	app.Use(handlers.NotFound)
