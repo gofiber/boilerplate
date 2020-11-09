@@ -38,7 +38,7 @@ func main() {
 	v1.Post("/users", handlers.UserCreate)
 
 	// Setup static files
-	app.Static("/", "./public")
+	app.Static("/", "./static/public")
 
 	// Handle not founds
 	app.Use(handlers.NotFound)
