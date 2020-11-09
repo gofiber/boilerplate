@@ -20,8 +20,8 @@ FROM alpine:latest
 WORKDIR /app
 
 # Create the `public` dir and copy all the assets into it
-RUN mkdir ./public
-COPY ./public ./public
+RUN mkdir ./static
+COPY ./static ./static
 
 # `boilerplate` should be replaced here as well
 COPY --from=build /go/src/boilerplate/app .

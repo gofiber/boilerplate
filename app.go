@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	port = flag.String("port", ":3001", "Port to listen on")
+	port = flag.String("port", ":3000", "Port to listen on")
 	prod = flag.Bool("prod", false, "Enable prefork in Production")
 )
 
