@@ -18,6 +18,9 @@ var (
 )
 
 func main() {
+	// Parse command-line flags
+	flag.Parse()
+
 	// Connected with database
 	database.Connect()
 
