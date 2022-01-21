@@ -2,4 +2,4 @@ module boilerplate
 
 go 1.15
 
-require github.com/gofiber/fiber/v2 v2.24.0
+require github.com/gofiber/fiber/v2 v2.25.0
