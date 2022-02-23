@@ -4,7 +4,7 @@ image_name = gofiber:latest
 run-local:
 	go run app.go
 
-requeriments:
+requirements:
 	go mod tidy
 
 clean-packages:
