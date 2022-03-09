@@ -35,7 +35,7 @@ go run app.go
 make clean-packages
 
 # Generate go.mod & go.sum files
-make requeriments
+make requirements
 
 # Generate docker image
 make build
