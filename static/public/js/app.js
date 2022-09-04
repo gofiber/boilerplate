@@ -5,9 +5,9 @@ $(document).ready(function () {
 function listUsers() {
   $.getJSON("/api/v1/users", (data) => {
     var users = ''
-    for (var i = 0; i < data.user.length; i++) {
-      users += '<li class="list-group-item">' + data.user[i].name + '</li>'
-    }
+    $.each(data.user, function(index, val) {
+      users += '<li class="list-group-item">' + val.name + '</li>'
+    });
     $('#users').html('')
     $('#users').append(users)
   })

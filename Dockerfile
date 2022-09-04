@@ -1,5 +1,5 @@
 # Building the binary of the App
-FROM golang:1.15 AS build
+FROM golang:1.19 AS build
 
 # `boilerplate` should be replaced with your project name
 WORKDIR /go/src/boilerplate
@@ -15,7 +15,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o app 
 
 
 # Moving the binary to the 'final Image' to make it smaller
-FROM alpine:latest
+FROM alpine:latest as release
 
 WORKDIR /app
 
@@ -26,7 +26,12 @@ COPY ./static ./static
 # `boilerplate` should be replaced here as well
 COPY --from=build /go/src/boilerplate/app .
 
+# Add packages
+RUN apk -U upgrade \
+    && apk add --no-cache dumb-init ca-certificates \
+    && chmod +x /app/app
+
 # Exposes port 3000 because our program listens on that port
 EXPOSE 3000
 
-CMD ["./app"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
