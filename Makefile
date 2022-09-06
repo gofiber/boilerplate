@@ -22,7 +22,11 @@ build-no-cache:
 
 up-silent:
 	make delete-container-if-exist
-	docker run -d -p 3000:3000 --name $(project_name) $(image_name)
+	docker run -d -p 3000:3000 --name $(project_name) $(image_name) ./app
+
+up-silent-prefork:
+	make delete-container-if-exist
+	docker run -d -p 3000:3000 --name $(project_name) $(image_name) ./app -prod
 
 delete-container-if-exist:
 	docker stop $(project_name) || true && docker rm $(project_name) || true

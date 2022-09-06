@@ -14,8 +14,8 @@
 Use the following plugins, in this boilerplate project:
 - Nome: Go
   - ID: golang.go
-  - Descrição: Rich Go language support for Visual Studio Code
-  - Versão: 0.29.0
+  - Description: Rich Go language support for Visual Studio Code
+  - Version: 0.29.0
   - Editor: Go Team at Google
   - Link do Marketplace do VS: https://marketplace.visualstudio.com/items?itemName=golang.Go
 
@@ -49,6 +49,9 @@ make up
 # Run local container in background
 make up-silent
 
+# Run local container in background with prefork
+make up-silent-prefork
+
 # Stop container
 make stop
 
@@ -60,7 +63,7 @@ make start
 
 ```bash
 docker build -t gofiber .
-docker run -d -p 3000:3000 gofiber
+docker run -d -p 3000:3000 gofiber ./app -prod
 ```
 
 Go to http://localhost:3000:

@@ -5,11 +5,13 @@ import (
 	"boilerplate/models"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/utils"
 )
 
 // UserGet returns a user
 func UserList(c *fiber.Ctx) error {
 	users := database.Get()
+
 	return c.JSON(fiber.Map{
 		"success": true,
 		"user":    users,
@@ -19,9 +21,10 @@ func UserList(c *fiber.Ctx) error {
 // UserCreate registers a user
 func UserCreate(c *fiber.Ctx) error {
 	user := &models.User{
-		Name: c.FormValue("user"),
+		Name: utils.CopyString(c.FormValue("user")),
 	}
 	database.Insert(user)
+
 	return c.JSON(fiber.Map{
 		"success": true,
 		"user":    user,
