@@ -6,6 +6,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    automerged_updates:
+      -  match:
+           dependency_name: "gofiber/fiber/*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
