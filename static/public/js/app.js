@@ -6,7 +6,7 @@ function listUsers() {
   $.getJSON("/api/v1/users", (data) => {
     var users = ''
     $.each(data.user, function(index, val) {
-      users += '<li class="list-group-item">' + val.name + '</li>'
+      users += '<li class="list-group-item">' + val.name + '</li>';
     })
     $('#users').html('')
     $('#users').append(users)
