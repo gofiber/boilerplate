@@ -21,6 +21,8 @@ func UserList(c *fiber.Ctx) error {
 // UserCreate registers a user
 func UserCreate(c *fiber.Ctx) error {
 	user := &models.User{
+		// Note: when writing to external database,
+		// we can simply use - Name: c.FormValue("user")
 		Name: utils.CopyString(c.FormValue("user")),
 	}
 	database.Insert(user)
