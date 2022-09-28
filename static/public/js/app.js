@@ -1,5 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
-const container = document.querySelector('#users');
+const container = $('#users');
 const API_ENDPOINT = '/api/v1/users';
 
 const listUsers = async () => {
