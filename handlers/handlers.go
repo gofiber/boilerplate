@@ -14,7 +14,7 @@ func UserList(c *fiber.Ctx) error {
 
 	return c.JSON(fiber.Map{
 		"success": true,
-		"user":    users,
+		"users":   users,
 	})
 }
 
