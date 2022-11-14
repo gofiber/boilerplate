@@ -1,5 +1,8 @@
 name: Dependabot auto-merge
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - 'dependabot/**'
 
 permissions:
   contents: write
@@ -8,6 +11,7 @@ permissions:
 jobs:
   wait_for_checks:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
        - name: Wait for check is finished
          uses: lewagon/wait-on-check-action@v1.0.0
