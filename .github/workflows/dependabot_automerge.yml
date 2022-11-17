@@ -1,8 +1,6 @@
 name: Dependabot auto-merge
 on:
-  pull_request:
-    branches:
-      - 'dependabot/**'
+  pull_request
 
 permissions:
   contents: write
