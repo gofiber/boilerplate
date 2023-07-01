@@ -31,6 +31,9 @@ go run app.go
 ### Use local container
 
 ```
+# Shows all commands
+make help
+
 # Clean packages
 make clean-packages
 
