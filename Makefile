@@ -2,7 +2,7 @@ project_name = boilerPlate
 image_name = gofiber:latest
 
 help: ## This help dialog.
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	@grep -F -h "##" $(MAKEFILE_LIST) | grep -F -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 run-local: ## Run the app locally
 	go run app.go
