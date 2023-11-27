@@ -3,7 +3,7 @@ on:
     branches:
       - master
   pull_request:
-name: Tests
+name: Test
 jobs:
   Tests:
     strategy:
