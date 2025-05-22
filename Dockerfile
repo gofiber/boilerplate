@@ -1,5 +1,5 @@
 # Building the binary of the App
-FROM golang:1.19 AS build
+FROM golang:1.24 AS build
 
 # `boilerplate` should be replaced with your project name
 WORKDIR /go/src/boilerplate
