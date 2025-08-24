@@ -4,12 +4,14 @@ import (
 	"boilerplate/database"
 	"boilerplate/handlers"
 
+	"github.com/gofiber/fiber/v3/middleware/static"
+
 	"flag"
 	"log"
 
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/middleware/logger"
+	"github.com/gofiber/fiber/v3/middleware/recover"
 )
 
 var (
