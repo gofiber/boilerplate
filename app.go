@@ -7,9 +7,10 @@ import (
 	"flag"
 	"log"
 
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/middleware/logger"
+	"github.com/gofiber/fiber/v3/middleware/recover"
+	"github.com/gofiber/fiber/v3/middleware/static"
 )
 
 var (
@@ -25,9 +26,7 @@ func main() {
 	database.Connect()
 
 	// Create fiber app
-	app := fiber.New(fiber.Config{
-		Prefork: *prod, // go run app.go -prod
-	})
+	app := fiber.New(fiber.Config{})
 
 	// Middleware
 	app.Use(recover.New())
@@ -41,11 +40,11 @@ func main() {
 	v1.Post("/users", handlers.UserCreate)
 
 	// Setup static files
-	app.Static("/", "./static/public")
+	app.Get("/*", static.New("./static/public"))
 
 	// Handle not founds
 	app.Use(handlers.NotFound)
 
 	// Listen on port 3000
-	log.Fatal(app.Listen(*port)) // go run app.go -port=:3000
+	log.Fatal(app.Listen(*port, fiber.ListenConfig{EnablePrefork: *prod})) // go run app.go -port=:3000
 }

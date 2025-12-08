@@ -4,12 +4,12 @@ import (
 	"boilerplate/database"
 	"boilerplate/models"
 
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/utils"
+	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/utils/v2"
 )
 
 // UserList returns a list of users
-func UserList(c *fiber.Ctx) error {
+func UserList(c fiber.Ctx) error {
 	users := database.Get()
 
 	return c.JSON(fiber.Map{
@@ -19,7 +19,7 @@ func UserList(c *fiber.Ctx) error {
 }
 
 // UserCreate registers a user
-func UserCreate(c *fiber.Ctx) error {
+func UserCreate(c fiber.Ctx) error {
 	user := &models.User{
 		// Note: when writing to external database,
 		// we can simply use - Name: c.FormValue("user")
@@ -34,6 +34,6 @@ func UserCreate(c *fiber.Ctx) error {
 }
 
 // NotFound returns custom 404 page
-func NotFound(c *fiber.Ctx) error {
+func NotFound(c fiber.Ctx) error {
 	return c.Status(404).SendFile("./static/private/404.html")
 }
