@@ -12,12 +12,12 @@
 ### Visual Studio Code
 
 Use the following plugins, in this boilerplate project:
-- Nome: Go
+- Name: Go
   - ID: golang.go
   - Description: Rich Go language support for Visual Studio Code
   - Version: 0.29.0
   - Editor: Go Team at Google
-  - Link do Marketplace do VS: https://marketplace.visualstudio.com/items?itemName=golang.Go
+  - Link to Marketplace to VS: https://marketplace.visualstudio.com/items?itemName=golang.Go
 
 ## Development
 
@@ -31,6 +31,9 @@ go run app.go
 ### Use local container
 
 ```
+# Shows all commands
+make help
+
 # Clean packages
 make clean-packages
 

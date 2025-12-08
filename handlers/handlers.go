@@ -8,7 +8,7 @@ import (
 	"github.com/gofiber/utils/v2"
 )
 
-// UserGet returns a user
+// UserList returns a list of users
 func UserList(c fiber.Ctx) error {
 	users := database.Get()
 
