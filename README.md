@@ -4,7 +4,7 @@
 [![Discord](https://img.shields.io/badge/discord-join%20channel-7289DA)](https://gofiber.io/discord)
 ![Test](https://github.com/gofiber/boilerplate/workflows/Test/badge.svg)
 ![Security](https://github.com/gofiber/boilerplate/workflows/Security/badge.svg)
-![Linter](https://github.com/gofiber/boilerplate/workflows/Linter/badge.svg)
+![Linter](https://github.com/gofiber/boilerplate/actions/workflows/lint.yml/badge.svg)
 
 
 ## IDE Development
@@ -21,7 +21,7 @@ Use the following plugins, in this boilerplate project:
 
 ## Development
 
-### Start the application 
+### Start the application
 
 
 ```bash
