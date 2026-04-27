@@ -19,7 +19,6 @@ permissions:
 
 jobs:
   lint:
-    uses: gofiber/.github/.github/workflows/go-lint.yml@main
+    uses: gofiber/.github/.github/workflows/go-lint-single.yml@main
     with:
-      repo-type: single
       golangci-lint-args: "--tests=false"
