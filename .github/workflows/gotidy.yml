@@ -9,6 +9,9 @@ on:
       - 'go.mod'
       - 'go.sum'
 
+permissions:
+  contents: write
+
 jobs:
   fix:
     runs-on: ubuntu-latest

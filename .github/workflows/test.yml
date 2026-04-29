@@ -4,6 +4,10 @@ on:
       - master
   pull_request:
 name: Test
+
+permissions:
+  contents: read
+
 jobs:
   Tests:
     strategy:
