@@ -17,11 +17,11 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
     - name: Install Go
-      uses: actions/setup-go@v6
+      uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6
       with:
         go-version: ${{ matrix.go-version }}
     - name: Setup Golang caches
-      uses: actions/cache@v5
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
       with:
           # In order:
           # * Module download cache
@@ -37,6 +37,6 @@ jobs:
           restore-keys: |
               ${{ runner.os }}-go-${{ matrix.go-version }}-
     - name: Fetch Repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
     - name: Run Test
       run: go test ./... -v -race
