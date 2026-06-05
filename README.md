@@ -73,3 +73,9 @@ Go to http://localhost:3000:
 
 
 ![Go Fiber Docker Boilerplate](./go_fiber_boilerplate.gif)
+
+## ☕ Supporters
+
+Fiber is an open-source project that runs on donations to pay the bills, e.g., our domain name, hosting, and serverless infrastructure. If you want to support Fiber, please become a [GitHub Sponsor](https://github.com/sponsors/gofiber).
+
+<!-- sponsors --><!-- sponsors -->
