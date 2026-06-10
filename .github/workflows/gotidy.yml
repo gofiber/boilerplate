@@ -1,6 +1,7 @@
 name: Tidy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'
@@ -9,12 +10,17 @@ on:
       - 'go.mod'
       - 'go.sum'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
 jobs:
   fix:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       -
         name: Checkout

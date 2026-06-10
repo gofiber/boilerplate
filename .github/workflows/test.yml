@@ -1,9 +1,14 @@
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
   pull_request:
 name: Test
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -15,28 +20,13 @@ jobs:
         go-version: [1.25.x]
         platform: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.platform }}
+    timeout-minutes: 30
     steps:
+    - name: Fetch Repository
+      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
     - name: Install Go
       uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6
       with:
         go-version: ${{ matrix.go-version }}
-    - name: Setup Golang caches
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
-      with:
-          # In order:
-          # * Module download cache
-          # * Build cache (Linux)
-          # * Build cache (Mac)
-          # * Build cache (Windows)
-          path: |
-              ~/go/pkg/mod
-              ~/.cache/go-build
-              ~/Library/Caches/go-build
-              ~\AppData\Local\go-build
-          key: ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-              ${{ runner.os }}-go-${{ matrix.go-version }}-
-    - name: Fetch Repository
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
     - name: Run Test
       run: go test ./... -v -race
