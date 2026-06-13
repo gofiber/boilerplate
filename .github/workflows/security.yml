@@ -22,6 +22,6 @@ jobs:
       - name: Fetch Repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
       - name: Run Gosec
-        uses: securego/gosec@b4f29347566880540afec8205b633d2859377cec # master
+        uses: securego/gosec@f1c81de5fcdf7b466b229fb24ca02d1a8406dd09 # master
         with:
           args: ./...
