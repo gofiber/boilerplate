@@ -6,6 +6,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      exclude:
+        - "github.com/gofiber/*"
+        - "github.com/valyala/fasthttp*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
