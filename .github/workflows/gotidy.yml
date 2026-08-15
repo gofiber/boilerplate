@@ -47,7 +47,7 @@ jobs:
         name: Commit and push changes
         run: |
           git add .
-          if output=$(git status --porcelain) && [ ! -z "$output" ]; then
+          if output=$(git status --porcelain) && [ -n "$output" ]; then
             git commit --author "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" --message "Fix go modules"
             git push
           fi
