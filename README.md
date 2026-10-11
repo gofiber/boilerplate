@@ -1,3 +1,8 @@
+<p align="center">
+  <img height="125" alt="Fiber Boilerplate" src="https://raw.githubusercontent.com/gofiber/boilerplate/master/.github/logo-dark.svg#gh-dark-mode-only" />
+  <img height="125" alt="Fiber Boilerplate" src="https://raw.githubusercontent.com/gofiber/boilerplate/master/.github/logo.svg#gh-light-mode-only" />
+</p>
+
 # GoFiber Docker Boilerplate
 
 ![Release](https://img.shields.io/github/release/gofiber/boilerplate.svg)
