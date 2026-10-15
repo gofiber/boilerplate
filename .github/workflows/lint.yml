@@ -25,4 +25,5 @@ jobs:
   lint:
     uses: gofiber/.github/.github/workflows/go-lint-single.yml@main
     with:
+      golangci-lint-version: v2.14.0
       golangci-lint-args: "--tests=false"
