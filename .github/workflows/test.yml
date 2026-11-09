@@ -3,7 +3,19 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "**"
+      - "!**/*.md"
+      - "!.github/dependabot.yml"
+      - "!.github/workflows/**"
+      - ".github/workflows/test.yml"
   pull_request:
+    paths:
+      - "**"
+      - "!**/*.md"
+      - "!.github/dependabot.yml"
+      - "!.github/workflows/**"
+      - ".github/workflows/test.yml"
 name: Test
 
 concurrency:

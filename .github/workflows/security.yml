@@ -4,7 +4,19 @@ on:
         branches:
             - master
             - main
+        paths:
+            - "**"
+            - "!**/*.md"
+            - "!.github/dependabot.yml"
+            - "!.github/workflows/**"
+            - ".github/workflows/security.yml"
     pull_request:
+        paths:
+            - "**"
+            - "!**/*.md"
+            - "!.github/dependabot.yml"
+            - "!.github/workflows/**"
+            - ".github/workflows/security.yml"
 name: Security
 
 concurrency:
